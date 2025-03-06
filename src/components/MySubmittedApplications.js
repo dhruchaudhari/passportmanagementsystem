@@ -62,6 +62,14 @@ export default function MyApplications() {
                     <p>Appointment Date: {new Date(app.visitDate).toLocaleDateString()}</p>
                     <p>Submitted: {new Date(app.createdAt).toLocaleString()}</p>
                   </div>
+                  {app.status === "APPROVED" && (
+                    <button
+                      className="print-btn"
+                      onClick={() => navigate(`/application/${app._id}/print`)}
+                    >
+                      Print
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
@@ -74,6 +82,9 @@ export default function MyApplications() {
 
 // Add this CSS
 const applicationsStyles = `
+.print-btn{
+  
+}
 .applications-container {
   display: flex;
   justify-content: center;

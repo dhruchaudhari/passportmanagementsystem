@@ -175,3 +175,18 @@ export const updatePassportApplication = async (req, res, next) => {
     );
   }
 };
+
+export const getApplicationByID = async (req, res) => {
+  try {
+    const application = await PassportApplication.findById(req.params.id)
+      .populate("userId centerId");
+    
+    if (!application) {
+      return res.status(404).json({ message: "Application not found" });
+    }
+    
+    res.json(application);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+}

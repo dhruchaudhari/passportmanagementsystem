@@ -9,6 +9,7 @@ import MyApplications from './components/MySubmittedApplications';
 import AdminDashboard from './components/Dashboard';
 import ApplicationDetail from './components/ApplicationDetail';
 import AdminRoute from './components/AdminRoute'
+import PrintApplication from './components/PrintApplication.js';
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
       <Route path='/passportapplication' element={<PassportApplication></PassportApplication>}></Route>
       <Route path='/profile' element={<Profile></Profile>}></Route>
       <Route path="/myapplications" element={<MyApplications />} />
+      <Route path="/application/:id/print" element={<PrintApplication />} />
       
         {/* Admin Routes */}
         <Route path="/admin" element={

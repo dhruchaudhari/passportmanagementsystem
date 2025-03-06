@@ -3,7 +3,8 @@ import { upload } from "../middleware/multer.js";
 import {
   createPassportApplication,
   updatePassportApplication,
-  getUserApplications
+  getUserApplications,
+  getApplicationByID
 } from "../controllers/passportController.js";
 import { verifyJWT } from "../middleware/auth.js";
 
@@ -22,5 +23,7 @@ router.route("/apply").post(upload.fields([
 router.put("/apply/:id", updatePassportApplication);
 
 router.get("/" , verifyJWT,  getUserApplications)
+router.get("/:id" , getApplicationByID)
+
 
 export default router;
