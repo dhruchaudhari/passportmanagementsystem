@@ -1,0 +1,122 @@
+/* auth.css */
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3a53d1;
+    --text-color: #2b2d42;
+    --bg-color: #f8f9fa;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+  }
+  
+  .auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-color);
+    padding: 2rem;
+  }
+  
+  .auth-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease;
+  }
+  
+  .auth-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .auth-title {
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .auth-form .form-label {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .auth-form .form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .auth-form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67,97,238,0.1);
+  }
+  
+  .auth-form .alert {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .auth-form .btn-primary {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .auth-form .btn-primary:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+  }
+  
+  .auth-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .auth-link:hover {
+    color: var(--secondary-color);
+  }
+  
+  /* Specific to Register page */
+  .file-input {
+    padding: 0.5rem;
+    border: 2px dashed #e2e8f0;
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .file-input:hover {
+    border-color: var(--primary-color);
+    background: #f8f9fa;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .auth-container {
+      padding: 1rem;
+    }
+    
+    .auth-card {
+      padding: 1.5rem;
+    }
+    
+    .auth-title {
+      font-size: 1.75rem;
+    }
+  }

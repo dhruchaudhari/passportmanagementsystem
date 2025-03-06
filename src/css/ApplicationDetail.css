@@ -1,0 +1,154 @@
+.application-detail {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: #2d3748;
+  }
+  
+  .application-detail h2 {
+    color: #2b2d42;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #4361ee;
+  }
+  
+  /* Section styling */
+  .user-info,
+  .center-info,
+  .applicant-info,
+  .documents {
+    background: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .user-info h3,
+  .center-info h3,
+  .applicant-info h3,
+  .documents h3 {
+    color: #4361ee;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  /* Detail grid layout */
+  .applicant-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .applicant-info p {
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 0.375rem;
+  }
+  
+  .applicant-info strong {
+    color: #4a5568;
+    margin-right: 0.5rem;
+  }
+  
+  /* Document links */
+  .document-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .document-links a {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #2d3748;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .document-links a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background: #4361ee;
+    color: white;
+  }
+  
+  /* Status form */
+  form {
+    bottom: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  form label {
+    font-weight: 600;
+    color: #4a5568;
+  }
+  
+  form select {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e2e8f0;
+    background: white;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+  
+  form select:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67,97,238,0.1);
+  }
+  
+  form button {
+    padding: 0.75rem 1.5rem;
+    background: #4361ee;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  form button:hover {
+    background: #3a53d1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .application-detail {
+      padding: 1rem;
+    }
+    
+    form {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .applicant-info {
+      grid-template-columns: 1fr;
+    }
+    
+    .document-links {
+      grid-template-columns: 1fr;
+    }
+  }
