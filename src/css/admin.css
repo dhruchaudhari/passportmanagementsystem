@@ -10,6 +10,7 @@
 }
 
 .admin-dashboard {
+  width: 100%;
   padding: 4rem;
   max-width: 1200px;
   margin: 0 auto;

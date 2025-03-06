@@ -372,6 +372,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./navbar.js";
 import { useNavigate } from "react-router-dom";
+import "../css/PassportApplication.css"
 
 export default function PassportApplication() {
   const [step, setStep] = useState(1);
@@ -461,8 +462,8 @@ export default function PassportApplication() {
     const day = selectedDate.getDay();
 
     if (day === 6 || day === 0) {
-        setMessage({ text: "Weekends are not allowed. Please select a weekday.", type: "error" });
-        return;
+      setMessage({ text: "Weekends are not allowed. Please select a weekday.", type: "error" });
+      return;
     }
 
     // Update formData correctly before making API request
@@ -471,30 +472,30 @@ export default function PassportApplication() {
 
     // Ensure centerId is valid
     if (!formData.centerId) {
-        setMessage({ text: "Please select a center first.", type: "error" });
-        return;
+      setMessage({ text: "Please select a center first.", type: "error" });
+      return;
     }
 
     try {
-        const response = await axios.get(`http://localhost:5000/centers/${formData.centerId}/slots`);
-        const slotsArray = response.data.data ?? []; // Ensure we get an array
+      const response = await axios.get(`http://localhost:5000/centers/${formData.centerId}/slots`);
+      const slotsArray = response.data.data ?? []; // Ensure we get an array
 
-        console.log(slotsArray);
+      console.log(slotsArray);
 
-        // Convert array to an object for easy lookup
-        const slotsMap = slotsArray.reduce((acc, { date, remainingslots }) => {
-            acc[date] = remainingslots;
-            return acc;
-        }, {});
+      // Convert array to an object for easy lookup
+      const slotsMap = slotsArray.reduce((acc, { date, remainingslots }) => {
+        acc[date] = remainingslots;
+        return acc;
+      }, {});
 
-        // Get remaining slots or default to 10
-        const remainingSlots = slotsMap[formattedDate] ?? 10;
-        setAvailableSlots(remainingSlots);
+      // Get remaining slots or default to 10
+      const remainingSlots = slotsMap[formattedDate] ?? 10;
+      setAvailableSlots(remainingSlots);
     } catch (error) {
-        console.error("Error fetching slots:", error);
-        setMessage({ text: "Failed to fetch slots. Please try again.", type: "error" });
+      console.error("Error fetching slots:", error);
+      setMessage({ text: "Failed to fetch slots. Please try again.", type: "error" });
     }
-};
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -750,228 +751,6 @@ export default function PassportApplication() {
           </form>
         )}
       </div>
-      <style jsx>{`
-  .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #f0f4f8;
-    padding: 2rem;
-  }
-
-  .form-box {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    width: 100%;
-    max-width: 700px;
-    margin: 80px auto 2rem;
-  }
-
-  h4 {
-    color: #2d3748;
-    font-size: 1.3rem;
-    margin: 1.5rem 0;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid #4299e1;
-    font-family: 'Segoe UI', sans-serif;
-  }
-
-  input, select {
-    width: 100%;
-    padding: 12px 15px;
-    margin: 8px 0;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: white;
-  }
-
-  input:focus, select:focus {
-    outline: none;
-    border-color: #4299e1;
-    box-shadow: 0 0 0 3px rgba(66,153,225,0.2);
-  }
-
-  input[type="file"] {
-    padding: 10px;
-    background: #f8fafc;
-    border: 2px dashed #cbd5e0;
-  }
-
-  input[type="file"]::file-selector-button {
-    padding: 8px 16px;
-    background: #4299e1;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  input[type="file"]::file-selector-button:hover {
-    background: #3182ce;
-  }
-
-  .btns {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  button {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  button[type="button"] {
-    background: #718096;
-    color: white;
-  }
-
-  button[type="submit"] {
-    background: #4299e1;
-    color: white;
-  }
-
-  button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-
-  button[type="button"]:hover {
-    background: #4a5568;
-  }
-
-  button[type="submit"]:hover {
-    background: #3182ce;
-  }
-
-  button:disabled {
-    background: #cbd5e0;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-
-  .message {
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .success {
-    background: #f0fff4;
-    color: #38a169;
-    border: 2px solid #68d391;
-  }
-
-  .error {
-    background: #fff5f5;
-    color: #e53e3e;
-    border: 2px solid #fc8181;
-  }
-
-  .success-message {
-    text-align: center;
-    padding: 2rem;
-    background: #f0fff4;
-    border-radius: 10px;
-    border: 2px solid #68d391;
-  }
-
-  .success-message h3 {
-    color: #38a169;
-    margin-bottom: 1rem;
-  }
-
-  .success-message p {
-    color: #38a169;
-    opacity: 0.9;
-  }
-
-  .stepper {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    position: relative;
-    padding: 0 1rem;
-  }
-
-  .step {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #e2e8f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #718096;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step.active {
-    background: #4299e1;
-    color: white;
-  }
-
-  .stepper::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #e2e8f0;
-    transform: translateY(-50%);
-  }
-
-  @media (max-width: 768px) {
-    .form-container {
-      padding: 1rem;
-    }
-
-    .form-box {
-      padding: 1.25rem;
-      margin-top: 70px;
-    }
-
-    h4 {
-      font-size: 1.2rem;
-      margin: 1rem 0;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-    }
-
-    .btns {
-      flex-direction: column;
-      margin-top: 1rem;
-    }
-
-    .stepper {
-      margin-bottom: 0.5rem;
-      padding: 0;
-    }
-  }
-`}</style>
     </>
   );
 }
