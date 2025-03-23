@@ -81,7 +81,7 @@ router.patch('/applications/:id/status', verifyJWT, adminCheck, async (req, res)
           from: process.env.EMAIL_USER,
           to: application.userId.email,
           subject: 'Application Status Updated',
-          text: `Your application status is now: ${application.status}`
+          text: `Your application status is now: ${application.status}. Please bring the hard copy with you at the time of physical meeting.`
         });
       }
     } catch (emailError) {
