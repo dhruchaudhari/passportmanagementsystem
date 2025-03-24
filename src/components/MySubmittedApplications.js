@@ -17,11 +17,11 @@ export default function MyApplications() {
           navigate("/login");
           return;
         }
-        
+
         const response = await axios.get(`http://localhost:5000/passport/`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        
+
         setApplications(response.data.data || []);
         console.log(response.data.data);
       } catch (error) {
@@ -64,10 +64,10 @@ export default function MyApplications() {
                   </div>
                   {app.status === "APPROVED" && (
                     <button
-                      className="print-btn"
-                      onClick={() => navigate(`/application/${app._id}/print`)}
+                      className="download-btn"
+                      onClick={() => navigate(`/application/${app._id}/download`)}
                     >
-                      Print
+                      Download
                     </button>
                   )}
                 </div>

@@ -24,6 +24,7 @@ import userRoute from "./src/routes/userRoute.js"
 import passportRoutes from "./src/routes/passportRoute.js";
 import documentRoutes from "./src/routes/documentsRoute.js";
 import adminRoutes from './src/routes/adminRoute.js';
+import walletRoutes from './src/routes/walletRoute.js'
 
 //define routes
 app.use("/users" , userRoute)
@@ -31,7 +32,7 @@ app.use("/passport", passportRoutes);
 app.use("/documents", documentRoutes);
 app.use("/centers", centerRoutes);
 app.use('/api/admin', adminRoutes);
-
+app.use("/wallet", walletRoutes);
 
 app.use(errorHandler)
 

@@ -1,38 +1,16 @@
 
+.download-btn {
+  background-color: #4299e1;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+}
 
-@media print {
-    body {
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      color: #000;
-    }
-    
-    .print-container {
-      width: 100%;
-      padding: 20px;
-      border: none;
-    }
-    .applicant-info {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1rem;
-      }
-  
-    h2, h3 {
-      text-align: center;
-      font-size: 13px;
-    }
-  
-    p {
-      margin:0;
-    }
-  
-    .application-status {
-      text-align: center;
-      font-weight: bold;
-    }
-  
-    .print-btn,.nav {
-      display: none; /* Hide print button */
-    }
-  }
-  
+.download-btn:hover {
+  background-color: #3182ce;
+}
+

@@ -26,7 +26,7 @@ function App() {
       <Route path='/passportapplication' element={<PassportApplication></PassportApplication>}></Route>
       <Route path='/profile' element={<Profile></Profile>}></Route>
       <Route path="/myapplications" element={<MyApplications />} />
-      <Route path="/application/:id/print" element={<PrintApplication />} />
+      <Route path="/application/:id/download" element={<PrintApplication />} />
       
         {/* Admin Routes */}
         <Route path="/admin" element={
